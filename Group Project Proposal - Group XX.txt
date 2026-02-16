@@ -1,0 +1,54 @@
+MAS 5313: Group Project Proposal - Batch 2025 
+ 
+ 
+Information regarding the project: 
+ 
+ Introduction:  
+Food price stability is a critical component of food security and economic well-being, particularly in developing countries such as Sri Lanka. Over recent years, Sri Lanka has experienced significant fluctuations in food prices due to economic shocks, policy changes, supply chain disruptions, climate variability, and external factors. Monitoring and analyzing food price movements is therefore essential for evidence-based decision-making, policy formulation, and early warning systems. The World Food Program (WFP) maintains a comprehensive food price database that captures market-level prices of key food commodities across Sri Lanka over time. This dataset provides a valuable opportunity to study temporal and spatial variations in food prices and to identify trends, volatility patterns, and regional disparities.
+This group project aims to apply statistical and time series techniques to analyze food price behavior in Sri Lanka using WFP food price data. The study will focus on understanding price trends, seasonal patterns, variability across markets and commodities, and the potential implications for food security monitoring.
+Objectives: 
+Characterize the temporal behavior of food prices for selected key commodities in Sri Lanka by identifying long-term trends and seasonal patterns.
+Identify spatial variations in food prices across districts and markets, highlighting regional disparities.
+Examine price variability and volatility across commodities and locations to detect periods of abnormal price fluctuations.
+Compare price movements across different commodity groups to understand differential market behavior.
+Provide statistically driven insights that can support food security monitoring and evidence-based policy discussions.
+ 
+About Data:  
+The study will use secondary data obtained from the World Food Program (WFP) – Food Prices for Sri Lanka dataset, available through the Humanitarian Data Exchange (HDX) platform.
+Key characteristics of the dataset include:
+Monthly market-level prices of major food commodities
+Coverage across multiple districts and markets in Sri Lanka
+Variables such as commodity name, category, market location, price type, currency, unit of measurement, and time period
+Data spanning several years, enabling longitudinal and time series analysis 
+Research Gap
+Although the WFP food price dataset has been widely used for routine monitoring, dashboards, and descriptive reporting, there is a relative lack of academically oriented statistical studies that systematically examine market-level price variability, regional heterogeneity, and volatility patterns within Sri Lanka. Most existing uses focus on national-level trends or simple visual summaries, with limited emphasis on comparative statistical analysis across districts and commodities. Furthermore, the application of structured time series decomposition and variability analysis to understand abnormal price movements in the Sri Lankan context remains underexplored. This study seeks to address this gap by applying rigorous exploratory and time series statistical techniques to generate deeper insights into spatial and temporal food price dynamics.
+Analysis and Methodology:  
+Data Processing and Cleaning
+Identification and treatment of missing values and inconsistent records
+Verification of units, currencies, and price types
+Filtering and selection of key commodities and representative markets
+Exploratory and Descriptive Analysis
+Computation of descriptive statistics 
+District-wise and commodity-wise comparisons using tables and graphical summaries
+Time Series Exploration
+Visualization of monthly price movements
+Seasonal decomposition to identify trend, seasonal, and irregular components
+Examination of price volatility over time
+Comparative Statistical Analysis
+Analysis of variance and non-parametric comparisons to assess differences across regions and commodities
+Correlation analysis to examine co-movement of prices between selected commodities
+Research Gap Identification and Interpretation
+Review of existing descriptive uses of WFP food price data
+Emphasis on market-level heterogeneity and volatility patterns that are often underexplored
+Interpretation of findings in the context of Sri Lanka's economic and food security conditions
+References:  
+World Food Program (WFP). Food Prices for Sri Lanka. Humanitarian Data Exchange (HDX).
+Food and Agriculture Organization of the United Nations (FAO). Food Price Monitoring and Analysis.
+Chatfield, C. (2016). The Analysis of Time Series: An Introduction. CRC Press.
+(i) Title of the Project:  	An Exploratory and Time Series Analysis of Food Price Dynamics in Sri Lanka Using WFP Market Price Data	
+(ii) Group No: 	XX 	
+(iii)Group Members:  	ID-001 - Student 1   	
+ID-002 - Student 2 	
+ID-003 - Student 3 	
+ID-004 - Student 4 	
+ID-005 – Student 5 	

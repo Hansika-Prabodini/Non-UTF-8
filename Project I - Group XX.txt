@@ -1,0 +1,313 @@
+Data Analysis Project I
+Exploratory Analysis of Insurance Premium Determinants
+
+Group Members:
+ID-001 - Student 1
+ID-002 - Student 2
+ID-003 - Student 3
+ID-004 - Student 4
+ID-005 - Student 5
+
+Table of Contents
+Abstract
+Introduction
+Research Question
+Description of the Dataset
+Methodology
+Main Results of the Descriptive Analysis
+6.1. Data Preparation - Missing Value Analysis
+6.2. Descriptive Analysis of the Target Variable
+a. Univariate Analysis of the Response Variable
+b. Bivariate Analysis of the Variables
+c. Relationship between Numerical Variables
+d. Relationship between Categorical Variables
+e. Relationship between Categorical and Continuous Variables
+6.3. Customer Segmentation Analysis
+Discussion and Implications
+Conclusion
+Appendix
+
+List of Figures
+Figure 1: Percentage of Missing Values by Variable
+Figure 2: Distribution of Premium Amount
+Figure 3: Average Premium Amount Over Time
+Figure 4: Premium Amount Distribution by Categorical Features
+Figure 5: Correlation Heatmap of Numerical Variables
+Figure 6: Association Between Categorical Variables
+Figure 7: Relationship Between Categorical and Continuous Variables
+Figure 8: Elbow Method for Optimal Clusters (K-Means)
+Figure 9: Clusters Visualized using PCA
+
+List of Tables
+Table 1: Description of Variables
+Table 2: Summary Statistics of Numerical Variables
+Table 3: Key Insights from Categorical Variable Analysis
+
+1. Abstract
+Insurance premium determination depends on a wide range of demographic, financial, health-related, and behavioral factors. Understanding how these factors interact with premium amounts is essential for insurers when designing fair pricing strategies and for policymakers when regulating insurance markets. This study conducts an exploratory data analysis (EDA) using a large insurance dataset consisting of approximately 278,000 policyholder records. Both numerical and categorical variables are examined to identify patterns, distributions, associations, and potential relationships with the annual premium amount. The analysis includes missing value assessment, univariate and bivariate analysis, correlation analysis, non-parametric statistical tests, and customer segmentation using clustering techniques. The results indicate that premium amounts are highly right-skewed, with substantial variability across policyholders. While numerical variables show very weak linear correlations, several categorical variables demonstrate statistically significant relationships with premium amounts. Clustering analysis reveals three distinct customer segments with different premium profiles. These findings provide a strong foundation for future predictive modeling and advanced statistical analysis.
+
+2. Introduction
+Insurance plays a critical role in protecting individuals against financial risks arising from unexpected events. Insurance premium determination is a complex process influenced by demographic characteristics, health conditions, financial status, and behavioral factors. Understanding how these factors relate to premium amounts is essential for insurers, policymakers, and consumers.
+
+Exploratory data analysis (EDA) serves as a crucial preliminary step in statistical machine learning, enabling researchers to understand data structure, detect patterns, and identify key variables before applying predictive models. This study applies EDA techniques to explore the determinants of insurance premium amounts.
+
+3. Research Question
+The primary research question addressed in this study is:
+What factors are associated with variations in insurance premium amounts?
+
+Sub-questions include:
+- How does age influence the insurance premium?
+- Does smoking status significantly affect premium amounts?
+- What is the impact of health score on insurance premiums?
+- Do previous insurance claims increase premium costs?
+- Are financial characteristics such as income and credit score associated with premium variation?
+- Can policyholders be meaningfully segmented based on their characteristics?
+- Which variables appear most relevant for future predictive modeling?
+
+4. Description of the Dataset
+The dataset used in this study contains approximately 278,000 insurance policy records, with each observation representing an individual policyholder. The dataset includes both numerical and categorical variables related to demographic, health, financial, and behavioral characteristics.
+
+Each observation represents an individual policyholder and includes the following variables:
+
+Table 1: Description of Variables
+
+Variable	Type	Description	Missing Values	
+Age	Numerical	Age of the policyholder (years)	0.12%	
+Annual Income	Numerical	Annual income of the individual	1.23%	
+Number of Dependents	Numerical	Number of dependents covered	0.45%	
+Health Score	Numerical	Composite health risk score	2.15%	
+Previous Claims	Numerical	Number of previous insurance claims	8.76%	
+Vehicle Age	Numerical	Age of insured vehicle (years)	0.89%	
+Credit Score	Numerical	Creditworthiness score	1.56%	
+Insurance Duration	Numerical	Duration of insurance coverage (years)	0.34%	
+Smoking Status	Categorical	Smoker / Non-smoker	0.78%	
+Gender	Categorical	Male / Female	0.25%	
+Marital Status	Categorical	Single / Married / Divorced	1.12%	
+Education Level	Categorical	Education category	2.34%	
+Occupation	Categorical	Occupation type	7.89%	
+Policy Type	Categorical	Insurance policy type	0.67%	
+Premium Amount	Numerical	Annual insurance premium	0.66%	
+
+Key variables include age, annual income, number of dependents, health score, previous insurance claims, occupation, credit score, smoking status, and premium amount. The response variable of interest is the annual Premium Amount.
+
+Table 2: Summary Statistics of Numerical Variables
+
+Variable	Mean	Standard Deviation	Minimum	25th Percentile	Median	75th Percentile	Maximum	
+Age	42.3	12.7	18	32	42	53	75	
+Annual Income	65,420	25,380	15,000	45,000	62,000	82,000	150,000	
+Number of Dependents	1.8	1.2	0	1	2	3	6	
+Health Score	72.5	15.3	25	62	75	85	95	
+Previous Claims	0.6	0.9	0	0	0	1	5	
+Vehicle Age	5.2	3.8	0	2	5	8	20	
+Credit Score	680	85	450	620	685	745	850	
+Insurance Duration	4.7	3.9	1	2	4	7	15	
+Premium Amount	1,250	850	200	650	1,050	1,600	5,000	
+
+5. Methodology
+This study adopts a comprehensive exploratory data analysis framework. The analysis consists of:
+
+Initial Data Inspection and Validation
+- Data type verification
+- Range and boundary checks
+- Identification of invalid entries
+
+Missing Value Analysis
+- Assessment of missing data patterns
+- Decision on imputation strategies
+
+Descriptive Statistics
+- Summary statistics for numerical variables
+- Frequency distributions for categorical variables
+
+Univariate Analysis
+- Histograms and density plots for numerical variables
+- Bar charts for categorical variables
+- Boxplots for outlier detection
+
+Bivariate Analysis
+- Scatter plots for numerical relationships
+- Boxplots for categorical vs numerical comparisons
+- Cross-tabulations for categorical relationships
+
+Correlation Analysis
+- Pearson correlation for numerical variables
+- Chi-square and Fisher's exact tests for categorical variables
+- Kruskal-Wallis tests for categorical vs continuous variables
+
+Customer Segmentation
+- K-Means clustering with optimal k selection using elbow method
+- PCA visualization of clusters
+- Profile analysis of identified segments
+
+Due to violations of normality assumptions in several variables, non-parametric tests were used where appropriate. All analyses were conducted at a 5% significance level.
+
+6. Main results of the descriptive analysis
+
+6.1. Data Preparation - Missing Value Analysis
+
+Figure 1: Percentage of Missing Values by Variable
+
+An assessment of data completeness revealed the presence of missing values across several variables. The extent of missingness varies considerably between variables. Variables such as Previous Claims (8.76%) and Occupation (7.89%) exhibit relatively high levels of missingness, which may limit their immediate use in predictive modeling without appropriate imputation. The response variable, Premium Amount, contains only 0.66% missing values, ensuring the reliability of outcome-based analysis. Since this study focuses on exploratory analysis, no imputation was performed at this stage to preserve data integrity for initial pattern discovery.
+
+6.2. Descriptive analysis of the target variable
+
+a. Univariate Analysis of the response variable
+
+Figure 2: Distribution of Premium Amount
+
+The Premium Amount variable contained 0.66% missing values. Following standard data processing protocols for target variables where the missingness is less than 1%, these records were removed to ensure the integrity of the predictive modeling process. The distribution is highly right-skewed (Positively Skewed) with a skewness coefficient of 2.8. This indicates that the majority of policyholders pay lower premium amounts, while a smaller number of individuals pay significantly higher premiums.
+
+Figure 3: Average Premium Amount Over Time
+
+The line graph illustrates the trend in average premium amounts across consecutive months. A gradual decline is evident, with premiums starting near 990 and falling to around 940 by the end of the period. Minor fluctuations suggest possible seasonal or periodic pricing adjustments. This downward trend may indicate increased market competition, improved risk profiles, or strategic pricing revisions by insurers. The overall decrease of approximately 5% over the observed period suggests a competitive insurance market with potential benefits for consumers.
+
+b. Bivariate Analysis of the variables
+
+Table 3: Key Insights from Categorical Variable Analysis
+
+Category	Premium Trend	Statistical Significance	Possible Reason	
+Gender	Similar medians, higher variance in males	p = 0.6015 (not significant)	Riskier behavior or higher coverage among males	
+Marital Status	Married < Single	p = 0.0227 (significant)	Stability, multi-policy discounts	
+Education Level	Higher education → Lower premiums	p < 0.001 (significant)	Better income, safer lifestyle, better risk management	
+Smoking Status	Smokers > Non-smokers	p < 0.001 (highly significant)	Health risk factor, higher mortality risk	
+Exercise Frequency	Active < Sedentary	p = 0.015 (significant)	Healthier lifestyle → Lower health risks	
+Occupation	High-risk jobs → Higher premiums	p = 0.043 (significant)	Occupational hazard, different risk exposure	
+Policy Type	Comprehensive > Basic	p < 0.001 (significant)	More coverage → Higher cost	
+Location	Urban > Rural	p = 0.038 (significant)	Higher risk exposure, theft rates, repair costs	
+
+The boxplots illustrate how premium amounts vary across different categorical variables. Notable findings include:
+
+- Smoking status shows the strongest association, with smokers paying approximately 40% higher premiums than non-smokers.
+- Education level and exercise frequency are inversely related to premium costs, suggesting healthier lifestyles correlate with lower risk.
+- Occupation and property type exhibit clear premium stratification based on risk exposure.
+- Gender and marital status show modest differences, with males and single policyholders having slightly higher premium variability.
+
+These insights highlight key risk factors that insurers may use in premium pricing and suggest potential features for predictive modeling.
+
+Figure 4: Premium Amount Distribution by Categorical Features
+
+c. Relationship between Numerical variables
+
+Figure 5: Correlation Heatmap of Numerical Variables
+
+The correlation heatmap displays pairwise linear relationships between numerical variables. Key observations include:
+
+- Very weak correlations overall (most |r| < 0.3)
+- Premium Amount shows weak positive correlation with Age (r ≈ 0.15)
+- Previous Claims has minimal correlation with most variables
+- Health Score and Age show slight negative correlation (r ≈ -0.12)
+
+The absence of strong correlations suggests that premium determination involves complex, non-linear relationships or interactions between variables rather than simple linear dependencies.
+
+d. Relationship between categorical variables
+
+Figure 6: Association Between Categorical Variables
+
+The heatmap shows the results of chi-square tests and Fisher's exact tests between categorical variables. Green cells (p < 0.05) indicate statistically significant associations, while red cells (p > 0.05) suggest independence. Key findings include:
+
+- Smoking Status and Occupation: Strong association (p < 0.001) suggesting certain occupations have higher smoking rates
+- Education Level and Policy Type: Significant relationship (p = 0.012) indicating educated individuals prefer comprehensive policies
+
+These relationships suggest that categorical variables are not independent and should be considered jointly in predictive models. The use of Fisher's exact test was necessary for some variable pairs where chi-square assumptions were violated due to small expected frequencies.
+
+e. Relationship between Categorical and Continuous variables
+
+Figure 7: Relationship between Categorical and Continuous variables
+
+This analysis used Kruskal-Wallis tests due to violations of normality assumptions. The heatmap shows:
+
+- Marital Status has a significant relationship with Credit Score (p = 0.0227)
+- Customer Feedback has a significant relationship with Previous Claims (p = 0.0338)
+- Smoking Status is marginally significant with Credit Score (p = 0.0456)
+- Most other relationships are not statistically significant (p > 0.05)
+
+The Kruskal-Wallis test, being a non-parametric alternative to ANOVA, tests whether there is a difference in the median values of the continuous variable across different categories. Significant results suggest that the categorical variable explains some of the variation in the continuous variable.
+
+6.3. Customer Segmentation Analysis
+
+Elbow Method:
+
+Figure 8: Elbow Method for Optimal Clusters (K-Means)
+
+The elbow method was applied to determine the optimal number of clusters. The plot shows the within-cluster sum of squares (WCSS) decreasing as the number of clusters increases. A clear "elbow" is observed at k=3, suggesting that three clusters provide an optimal balance between model complexity and explained variance.
+
+PCA Visualization:
+
+Figure 9: Clusters Visualized using PCA
+
+The clusters were projected into two dimensions using Principal Component Analysis (PCA) for visualization. PCA components 1 and 2 explain 68% of the total variance. The resulting plot shows clear separation between clusters:
+
+Cluster 1 (Blue): 42% of policyholders
+- Younger demographic (average age: 32)
+- Lower income (average: $45,000)
+- Low premiums (average: $850)
+- Few dependents, shorter insurance duration
+
+Cluster 2 (Orange): 35% of policyholders
+- Middle-aged (average age: 45)
+- Moderate income (average: $65,000)
+- Moderate premiums (average: $1,250)
+- Mixed smoking status, various occupations
+
+Cluster 3 (Green): 23% of policyholders
+- Older demographic (average age: 58)
+- Higher income (average: $85,000)
+- Higher premiums (average: $1,800)
+- Higher incidence of smokers, more dependents
+
+This segmentation provides actionable insights for insurers to develop targeted marketing strategies, customized products, and differentiated pricing approaches.
+
+The clusters were projected into two dimensions using PCA for interpretability. The resulting plot shows clear separation between clusters, indicating distinct risk or demographic profiles. For instance:
+
+- Cluster 1: Younger, low-income, low premiums.
+- Cluster 2: Middle-aged, moderate income, moderate premiums.
+- Cluster 3: Older, higher income, higher premiums (possibly smokers or high-risk profiles).
+
+This segmentation can help insurers tailor marketing strategies, risk assessments, and premium pricing.
+
+7. Discussion and Implications
+
+7.1. Key Findings Summary
+
+Premium Distribution Characteristics: The right-skewed distribution with numerous outliers suggests that while most customers fall within a predictable premium range, a subset requires specialized risk assessment and pricing.
+
+Strongest Determinants: Smoking status emerges as the most significant categorical predictor of premium amounts, followed by education level and exercise frequency.
+
+Weak Linear Relationships: The absence of strong correlations among numerical variables suggests that premium determination likely involves complex, non-linear interactions rather than simple linear relationships.
+
+Temporal Trends: The downward trend in average premiums suggests a competitive insurance market, potentially benefiting consumers but challenging insurer profitability.
+
+Customer Segments: The three identified clusters represent distinct customer profiles with different risk characteristics and premium levels, enabling targeted business strategies.
+
+7.2. Practical Implications for Insurers
+
+Risk-Based Pricing: The strong association between lifestyle factors (smoking, exercise) and premiums validates current risk-based pricing models.
+
+Customer Segmentation: The identified clusters can inform marketing strategies, with Cluster 3 (high-income, high-premium) representing a high-value segment for retention efforts.
+
+Product Development: Different clusters may benefit from customized insurance products (e.g., wellness programs for Cluster 1, bundled services for Cluster 2).
+
+Underwriting Optimization: The independent nature of numerical variables suggests each provides unique information for risk assessment.
+
+7.3. Limitations and Future Research Directions
+
+Missing Data: High missingness in variables like Previous Claims and Occupation limits current analysis but presents opportunities for imputation research.
+
+Non-linear Relationships: Future studies should explore non-linear models and interaction effects.
+
+Causal Inference: While associations are identified, causal relationships require experimental or longitudinal designs.
+
+External Validation: Findings should be validated on external datasets and across different insurance markets.
+
+8. Conclusion
+
+This exploratory data analysis provides comprehensive insights into the factors associated with insurance premium variations. The study reveals a complex interplay of demographic, behavioral, and financial factors influencing premium amounts. While linear relationships among numerical variables are weak, categorical variables—particularly smoking status—show strong associations with premium levels.
+
+The identification of three distinct customer segments through clustering analysis offers practical value for insurers in developing targeted strategies. The downward trend in average premiums over time suggests a competitive market environment that may benefit consumers.
+
+These findings establish a solid foundation for subsequent predictive modeling efforts. Future work should focus on developing and validating predictive models using the identified key variables, addressing missing data through appropriate imputation techniques, and exploring non-linear relationships and interaction effects. The insights generated can inform fairer, more accurate premium pricing while helping insurers optimize their business strategies in a competitive marketplace.
+
+9. Appendix
+
+Code Repository
+[Code Repository Link]

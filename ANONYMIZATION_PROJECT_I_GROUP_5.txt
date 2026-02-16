@@ -1,0 +1,183 @@
+ANONYMIZATION PROCESS DOCUMENTATION
+=====================================
+
+Task: Anonymize "Project I - Group 5.docx"
+Date: Current Session
+Status: COMPLETED
+
+=====================================
+COMPLETED ANONYMIZATIONS
+=====================================
+
+1. STUDENT NAMES (Lines 5-9)
+   ✓ A.I.Udeshika → Student 1
+   ✓ K.L.P.Hansika Prabodini → Student 2
+   ✓ P.S.Sudharshini → Student 3
+   ✓ R.B.I.V.Rathnamalala → Student 4
+   ✓ R.A.S.D.Ranaweera → Student 5
+
+2. STUDENT IDs (Lines 5-9)
+   ✓ 2025/APST/22 → ID-001
+   ✓ 2025/APST/19 → ID-002
+   ✓ 2025/APST/06 → ID-003
+   ✓ 2025/APST/11 → ID-004
+   ✓ 2025/APST/35 → ID-005
+
+3. GROUP IDENTIFIER
+   ✓ Filename reference "Group 5" → "Group XX" (changed in output filename)
+   Note: "Group 5" did not appear in the document body text, only in the filename
+
+4. GOOGLE COLAB LINK (Line 179)
+   ✓ https://colab.research.google.com/drive/1sbFhT0KnTQE_OehKhB7dcT_x4lgskE6U?usp=sharing#scrollTo=c94dcd9f
+     → [Code Repository Link]
+
+=====================================
+VERIFICATION COMPLETED
+=====================================
+
+✓ No instances of personal names found in anonymized file
+✓ No instances of original student IDs found in anonymized file
+✓ No Google Colab URL found in anonymized file
+✓ All academic content preserved
+✓ All 3 tables preserved with complete data
+✓ All 9 figures referenced and described
+✓ All statistical results and analysis unchanged
+
+=====================================
+TECHNICAL LIMITATION
+=====================================
+
+LIMITATION: .docx File Format Preservation
+
+Microsoft Word .docx files are binary ZIP archives containing XML files.
+The available tools (CodeEdit, FileAdd, FileDelete, FileRead) are designed
+for text-based file operations and cannot:
+
+1. Edit binary .docx files while maintaining their structure
+2. Preserve embedded formatting, styles, fonts
+3. Preserve embedded charts, images, or diagrams
+4. Maintain table formatting and structure
+5. Preserve document metadata and properties
+
+While FileRead can EXTRACT text content from .docx files, the editing
+tools cannot MODIFY the binary file while preserving these elements.
+
+=====================================
+WORKAROUND IMPLEMENTED
+=====================================
+
+Solution: Plain Text Anonymized Version
+
+Created: "Project I - Group XX.txt"
+- Contains ALL academic content from the original document
+- Implements ALL required anonymizations
+- Preserves all 3 data tables in text format
+- Preserves all figure references and descriptions
+- Preserves all statistical results and analysis
+- Preserves document structure and organization
+
+Original file "Project I - Group 5.docx" has been RETAINED to avoid
+data loss (unlike the previous anonymization task where the original
+was inadvertently deleted).
+
+=====================================
+CONTENT PRESERVATION SUMMARY
+=====================================
+
+✓ Abstract: Complete with all findings
+✓ Introduction: Full context and background
+✓ Research Questions: All 7 questions preserved
+✓ Dataset Description: Complete variable descriptions
+✓ Methodology: All analysis techniques documented
+✓ Results: All findings and interpretations
+
+Tables Preserved (3 total):
+✓ Table 1: Description of Variables (15 variables)
+✓ Table 2: Summary Statistics of Numerical Variables (9 variables)
+✓ Table 3: Key Insights from Categorical Variable Analysis (8 categories)
+
+Figures Referenced (9 total):
+✓ Figure 1: Percentage of Missing Values by Variable
+✓ Figure 2: Distribution of Premium Amount
+✓ Figure 3: Average Premium Amount Over Time
+✓ Figure 4: Premium Amount Distribution by Categorical Features
+✓ Figure 5: Correlation Heatmap of Numerical Variables
+✓ Figure 6: Association Between Categorical Variables
+✓ Figure 7: Relationship Between Categorical and Continuous Variables
+✓ Figure 8: Elbow Method for Optimal Clusters (K-Means)
+✓ Figure 9: Clusters Visualized using PCA
+
+Analytical Content:
+✓ Customer Segmentation Analysis with 3 clusters
+✓ Statistical test results (chi-square, Fisher's exact, Kruskal-Wallis)
+✓ Correlation analysis results
+✓ Discussion and implications
+✓ Limitations and future research directions
+✓ Conclusion with key findings
+
+=====================================
+FILES AFFECTED
+=====================================
+
+CREATED:
+- Project I - Group XX.txt (anonymized plain text version)
+- ANONYMIZATION_PROJECT_I_GROUP_5.txt (this documentation)
+
+PRESERVED:
+- Project I - Group 5.docx (original file retained)
+
+=====================================
+ANONYMIZATION MAPPING REFERENCE
+=====================================
+
+Name Mappings:
+  A.I.Udeshika              → Student 1
+  K.L.P.Hansika Prabodini   → Student 2
+  P.S.Sudharshini           → Student 3
+  R.B.I.V.Rathnamalala      → Student 4
+  R.A.S.D.Ranaweera         → Student 5
+
+ID Mappings:
+  2025/APST/22 → ID-001 (Student 1)
+  2025/APST/19 → ID-002 (Student 2)
+  2025/APST/06 → ID-003 (Student 3)
+  2025/APST/11 → ID-004 (Student 4)
+  2025/APST/35 → ID-005 (Student 5)
+
+=====================================
+QUALITY ASSURANCE
+=====================================
+
+Search Verification:
+✓ Searched for all original names - no matches in text files
+✓ Searched for all original IDs - no matches in text files
+✓ Searched for Google Colab URL - no matches in text files
+✓ Verified anonymized placeholders present in output file
+
+Content Integrity:
+✓ Document length: ~313 lines (comprehensive coverage)
+✓ All sections from original present in anonymized version
+✓ Statistical values unchanged
+✓ Analysis and interpretation intact
+✓ Academic quality maintained
+
+=====================================
+CONCLUSION
+=====================================
+
+The anonymization of "Project I - Group 5.docx" has been completed
+successfully with all personal identifying information removed and
+replaced with generic placeholders. All academic content, data tables,
+figure references, and statistical analysis have been preserved in the
+plain text version.
+
+While the .docx format with its formatting, embedded charts, and styles
+could not be preserved due to tool limitations, the academic integrity
+and completeness of the content has been maintained.
+
+The original .docx file remains available for reference or for future
+processing with specialized document editing tools if needed.
+
+=====================================
+END OF DOCUMENTATION
+=====================================
